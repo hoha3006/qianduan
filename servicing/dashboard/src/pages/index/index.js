@@ -44,8 +44,16 @@ class Index extends Component {
     }
   }
   handleClick (value) {
-    this.setState({
-      current: value
+    this.setState({ current: value }, ()=>{
+      if(this.state.current === 1) {
+        Taro.redirectTo({
+          url: '/pages/testpage/test?id=1&type=C'
+        })
+      } else if (this.state.current === 0) {
+        Taro.redirectTo({
+          url: '/pages/index/index'
+        })
+      }
     })
   }
   onChange (value) {

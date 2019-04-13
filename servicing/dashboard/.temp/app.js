@@ -6,6 +6,7 @@ import { Provider } from "@tarojs/redux-h5";
 import configStore from "./store/index";
 
 import './app.css';
+import './customScss/custom-theme.scss';
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -28,7 +29,7 @@ const store = configStore();
 class App extends Component {
 
   config = {
-    pages: ['pages/index/index'],
+    pages: ['pages/index/index', 'pages/testpage/test'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -57,6 +58,10 @@ class App extends Component {
         path: '/pages/index/index',
         componentLoader: () => import( /* webpackChunkName: "index_index" */'./pages/index/index'),
         isIndex: true
+      }, {
+        path: '/pages/testpage/test',
+        componentLoader: () => import( /* webpackChunkName: "testpage_test" */'./pages/testpage/test'),
+        isIndex: false
       }]} customRoutes={{}} basename={"/"} />
               </Provider>;
   }
