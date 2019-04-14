@@ -29,7 +29,7 @@ const store = configStore();
 class App extends Component {
 
   config = {
-    pages: ['pages/index/index', 'pages/Favorites/Favorites', 'pages/User/User'],
+    pages: ['pages/index/index', 'pages/Favorites/Favorites', 'pages/User/User', 'pages/SearchDetails/SearchDetails', 'pages/SearchResults/SearchResults'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -65,6 +65,14 @@ class App extends Component {
       }, {
         path: '/pages/User/User',
         componentLoader: () => import( /* webpackChunkName: "User_User" */'./pages/User/User'),
+        isIndex: false
+      }, {
+        path: '/pages/SearchDetails/SearchDetails',
+        componentLoader: () => import( /* webpackChunkName: "SearchDetails_SearchDetails" */'./pages/SearchDetails/SearchDetails'),
+        isIndex: false
+      }, {
+        path: '/pages/SearchResults/SearchResults',
+        componentLoader: () => import( /* webpackChunkName: "SearchResults_SearchResults" */'./pages/SearchResults/SearchResults'),
         isIndex: false
       }]} customRoutes={{}} basename={"/"} />
               </Provider>;

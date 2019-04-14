@@ -118,6 +118,9 @@ class Index extends Component {
         <BottomTabBar />
       </View>;
   }
+
+  componentDidMount() {}
+
 }
 
 export default Index;

@@ -23,7 +23,9 @@ class App extends Component {
     pages: [
       'pages/index/index',
       'pages/Favorites/Favorites',
-      'pages/User/User'
+      'pages/User/User',
+      'pages/SearchDetails/SearchDetails',
+      'pages/SearchResults/SearchResults'
     ],
     window: {
       backgroundTextStyle: 'light',
