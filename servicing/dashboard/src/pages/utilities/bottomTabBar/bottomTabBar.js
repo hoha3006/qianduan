@@ -3,12 +3,8 @@ import { View, Button, Text } from '@tarojs/components'
 import { AtTabBar } from 'taro-ui'
 import './bottomTabBar.css'
 
-import "taro-ui/dist/style/components/button.scss";
 import "taro-ui/dist/style/components/tab-bar.scss";
 import "taro-ui/dist/style/components/badge.scss";
-import "taro-ui/dist/style/components/grid.scss";
-
-import "taro-ui/dist/style/components/search-bar.scss";
 import "taro-ui/dist/style/components/icon.scss";
 
 class BottomTabBar extends Component {
@@ -16,30 +12,28 @@ class BottomTabBar extends Component {
   constructor () {
     super(...arguments)
     this.state = {
-      current: 0,
+      current: this.props.current || 0,
     }
   }
   handleClick (value) {
-    this.setState({ current: value }, ()=>{
-      if(this.state.current === 1) {
-        Taro.redirectTo({
-          url: '/pages/Favorites/Favorites?id=1&type=C'
-        })
-      } else if (this.state.current === 0) {
-        Taro.redirectTo({
-          url: '/pages/index/index'
-        })
-      } else if (this.state.current === 2) {
-        Taro.redirectTo({
-          url: '/pages/User/User'
-        })
-      }
-    })
+    this.setState({ current: value })
+    if(value === 1) {
+      Taro.redirectTo({
+        url: '/pages/Favorites/Favorites?id=1&type=C'
+      })
+    } else if (value === 0) {
+      Taro.redirectTo({
+        url: '/pages/index/index'
+      })
+    } else if (value === 2) {
+      Taro.redirectTo({
+        url: '/pages/User/User'
+      })
+    }
   }
 
   render () {
     return (
-      <View className='index'>
         <AtTabBar
           fixed
           tabList={[
@@ -50,7 +44,6 @@ class BottomTabBar extends Component {
           onClick={this.handleClick.bind(this)}
           current={this.state.current}
         />
-      </View>
     )
   }
 }

@@ -13,7 +13,7 @@ class User extends Component {
   }
 
   componentWillMount () { 
-    console.log(this.$router.params) // 输出 { id: 2, type: 'test' }
+    // console.log(this.$router.params) // 输出 { id: 2, type: 'test' }
   }
 
   jumpToHomePage() {
@@ -27,7 +27,7 @@ class User extends Component {
       <div>
         <View className='index'>这里是用户界面</View>
         <AtButton type='primary' onClick={(e) => this.jumpToHomePage(e)}>返回主页</AtButton>
-        <BottomTabBar />
+        <BottomTabBar current={2}/>
       </div>
     )
   }

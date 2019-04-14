@@ -40,42 +40,33 @@ class Index extends Component {
   constructor () {
     super(...arguments)
     this.state = {
-      current: 0,
       value: ''
     }
+    this.handleAtGridClick = this.handleAtGridClick.bind(this)
   }
-  handleClick (value) {
-    this.setState({ current: value }, ()=>{
-      if(this.state.current === 1) {
-        Taro.redirectTo({
-          url: '/pages/Favorites/Favorites?id=1&type=C'
-        })
-      } else if (this.state.current === 0) {
-        Taro.redirectTo({
-          url: '/pages/index/index'
-        })
-      } else if (this.state.current === 2) {
-        Taro.redirectTo({
-          url: '/pages/User/User'
-        })
-      }
-    })
-  }
+
   onChange (value) {
     this.setState({
       value: value
     })
   }
+
   onActionClick () {
     console.log('开始搜索')
   }
 
-    config = {
+  handleAtGridClick(item, index) {
+      Taro.redirectTo({
+        url: `/pages/SearchResults/SearchResults?id=${item.value}`
+      })
+  }
+
+  config = {
     navigationBarTitleText: '首页'
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+    // console.log(this.props, nextProps)
   }
 
   componentWillUnmount () { }
@@ -117,7 +108,7 @@ class Index extends Component {
             </View>
           </SwiperItem>
         </Swiper>
-        <AtGrid columnNum={2} data={
+        <AtGrid columnNum={2} onClick={this.handleAtGridClick} data={
           [
             {
               image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
@@ -133,7 +124,7 @@ class Index extends Component {
             }
           ]
         } />
-        <BottomTabBar />
+        <BottomTabBar current={0}/>
       </View>
     )
   }

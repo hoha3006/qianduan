@@ -27,7 +27,7 @@ class SearchDetails extends Component {
       <div>
         <View className='index'>详情页面</View>
         <AtButton type='primary' onClick={(e) => this.jumpToHomePage(e)}>返回主页</AtButton>
-        <BottomTabBar />
+        <BottomTabBar current={0}/>
       </div>
     )
   }
