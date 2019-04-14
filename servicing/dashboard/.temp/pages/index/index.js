@@ -6,10 +6,10 @@ import { connect } from "@tarojs/redux-h5";
 
 import { add, minus, asyncAdd } from "../../actions/counter";
 
-import { AtTabBar } from 'taro-ui';
 import { AtGrid } from "taro-ui";
 import { AtSearchBar } from 'taro-ui';
 import { Swiper, SwiperItem } from '@tarojs/components';
+import BottomTabBar from "../utilities/bottomTabBar/bottomTabBar";
 import firstImg from '../../imgs/6398581.jpg';
 import secondImg from '../../imgs/6398582.jpg';
 import thirdImg from '../../imgs/6398584.jpg';
@@ -49,11 +49,15 @@ class Index extends Component {
     this.setState({ current: value }, () => {
       if (this.state.current === 1) {
         Taro.redirectTo({
-          url: '/pages/testpage/test?id=1&type=C'
+          url: '/pages/Favorites/Favorites?id=1&type=C'
         });
       } else if (this.state.current === 0) {
         Taro.redirectTo({
           url: '/pages/index/index'
+        });
+      } else if (this.state.current === 2) {
+        Taro.redirectTo({
+          url: '/pages/User/User'
         });
       }
     });
@@ -111,7 +115,7 @@ class Index extends Component {
         image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
         value: '活动中心'
       }]} />
-        <AtTabBar fixed tabList={[{ title: '搜索', iconType: 'search', text: 'new' }, { title: '收藏夹', iconType: 'star' }, { title: '我', iconType: 'user', text: '100', max: '99' }]} onClick={this.handleClick.bind(this)} current={this.state.current} />
+        <BottomTabBar />
       </View>;
   }
 }

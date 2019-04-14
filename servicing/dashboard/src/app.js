@@ -22,7 +22,8 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
-      'pages/testpage/test'
+      'pages/Favorites/Favorites',
+      'pages/User/User'
     ],
     window: {
       backgroundTextStyle: 'light',

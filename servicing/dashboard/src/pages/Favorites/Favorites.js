@@ -1,14 +1,15 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
-import './test.css'
+import BottomTabBar from '../utilities/bottomTabBar/bottomTabBar'
+import './Favorites.css'
 
 import "taro-ui/dist/style/components/button.scss";
 import "taro-ui/dist/style/components/loading.scss";
 
-class Test extends Component {
+class Favorites extends Component {
     config = {
-    navigationBarTitleText: '详情页'
+    navigationBarTitleText: '收藏夹'
   }
 
   componentWillMount () { 
@@ -24,11 +25,12 @@ class Test extends Component {
   render () {
     return (
       <div>
-        <View className='index'>Hello</View>
+        <View className='index'>Hello 这里是收藏夹界面</View>
         <AtButton type='primary' onClick={(e) => this.jumpToHomePage(e)}>返回主页</AtButton>
+        <BottomTabBar />
       </div>
     )
   }
 }
 
-export default Test
+export default Favorites
